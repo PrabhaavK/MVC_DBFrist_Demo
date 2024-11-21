@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\MVC_DBFirst_Demo.props" />
+</Project>

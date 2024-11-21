@@ -1,0 +1,39 @@
+step 1 
+
+add nuget packages 
+1Microsoft.EntityFrameworkCore
+2Microsoft.EntityFrameworkCore.Design
+3Microsoft.EntityFrameworkCore.SqlServer
+
+
+dotnet add package Microsoft.EntityFrameworkCore --version 5.0.17
+dotnet add package Microsoft.EntityFrameworkCore.Design --version 5.0.17
+dotnet add package Microsoft.EntityFrameworkCore.SqlServer --version 5.0.17
+
+
+
+ Generate View Using Command
+dotnet tool install -g dotnet-aspnet-codegenerator
+dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design --version 5.0.2
+
+
+step 2 
+
+write this in appsettings .json
+ "ConnectionStrings": {
+
+    "MyConStr": "server=localhost;database=YashDB;Trusted_Connection=True;"
+
+  }
+ 
+trustservercertificate=true;
+ 
+Step 3 :Add AppDbContext class in models Folder
+ 
+
+ Step 4 : add dependency in StartUp calls in ConfigureServices()
+ 
+services.AddDbContext<AppDbContext>(item =>
+
+            item.UseSqlServer(Configuration.GetConnectionString("MyConStr")));
+ 
